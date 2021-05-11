@@ -5,8 +5,13 @@
 }
 
 :root {
-    --white: #FFFFFF;
-    --black: #000000;
+    --white: #ffffff;
+    --raisin-black: #1d1e26;
+    --alice-blue: #e6f7ffff;
+    --medium-turquoise: #02ccc0ff;
+    --spanish-pink: #ffc0bbff;
+    --brink-pink: #ff5b7eff;
+    --flirt: #9E0B63;
 }
 
 @media(max-width: 1000px) {
@@ -22,12 +27,16 @@
 }
 
 body {
-    background-color: var(--background);
-    color: var(--text);
+    background-color: var(--flirt);
+    color: var(--raisin-black);
 }
 
 body, button, input, textarea {
-    font: 400 1rem "Inter", sans-serif;
+    font: 400 1rem "Itim", cursive;
+}
+
+input, textarea {
+    background-color: var(--alice-blue);
 }
 
 button {
