@@ -1,15 +1,10 @@
-import './styles/global.css';
+import React from 'react';
 
-function App() {
+import './styles/global.css';
+import Routes from './routes';
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Desafio prático BGC
-        </p>
-      </header>
-    </div>
+    <Routes />
   );
 }
-
-export default App;
