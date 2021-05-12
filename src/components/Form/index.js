@@ -18,16 +18,16 @@ export default function Form() {
     });
 
     const notify = (message, type) => {
-        if (type == "error") toast.error(message);
-        else if (type == "info") toast.info(message);
-        else if (type == "warning") toast.warn(message);
-        else if (type == "success") toast.success(message);
+        if (type === "error") toast.error(message);
+        else if (type === "info") toast.info(message);
+        else if (type === "warning") toast.warn(message);
+        else if (type === "success") toast.success(message);
         else toast(message);
     };
 
     async function sendMail(body) {
         try {
-            await API.post("emails", "/send", {body});
+            await API.post("cupidoonline", "/send", {body});
             notify("E-mail enviado com sucesso!", "success");
         } catch (e) {
             console.error(e);
