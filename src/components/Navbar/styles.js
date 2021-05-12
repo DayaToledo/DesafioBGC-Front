@@ -1,16 +1,23 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-    grid-area: form;
+export const Container = styled.nav`
+    grid-area: head;
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    background-color: var(--brink-pink);
+
+    h1 {
+        font-size: 2rem;
+        margin-left: 2rem;
+        cursor: pointer;
+    }
 
     form {
-        height: 38rem;
+        height: 40rem;
         width: 40rem;
         display: flex;
         flex-direction: column;
@@ -56,12 +63,13 @@ export const Container = styled.div`
     }
 
     button {
-        height: 3rem;
-        width: 30%;
+        height: 2.4rem;
+        width: 8rem;
         border: none;
-        border-radius: 1rem;
+        border-radius: 1.5rem;
         font-size: 1.3rem;
         font-weight: bold;
+        margin-right: 2rem;
         background-color: var(--spanish-pink);
 
         :hover {

@@ -5,8 +5,9 @@ export const Container = styled.div`
     width: 100vw;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-rows: 4rem 1fr;
     grid-template-areas:
+        "head head"
         "main form";
 `;
 
