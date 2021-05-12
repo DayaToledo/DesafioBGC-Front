@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { LoginContext } from './contexts/LoginContext';
 
 import './styles/global.css';
 import Routes from './routes';
 
 export default function App() {
+  const [isAuthenticated, userHasAuthenticated] = useState(false);
+
   return (
-    <Routes />
+    <LoginContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
+      <Routes />
+    </LoginContext.Provider>
   );
 }
