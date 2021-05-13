@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<h1 align="center">Cupido Online</h1>
+<h3 align="center">Aplicação desenvolvida para o desafio prático do Processo Seletivo da empresa BGC Brasil</h3>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+&nbsp;&nbsp;
+## 🔍 Sobre
 
-## Available Scripts
+A aplicação é um site responsivo que possibilita que uma pessoa envie uma mensagem anônima para seu crush por e-mail. Basta o usuário informar o nome e e-mail do destinatário, além da mensagem que deseja enviar.
+</br></br>
+Além de mandar o e-mail para o destinatário, o site também permite o login de usuários existentes e cadastramento de novos usuários.
 
-In the project directory, you can run:
+&nbsp;
+## ⚒ Tecnologias
 
-### `yarn start`
+Essa aplicação foi desenvolvida utilizando:
+* [ReactJS](https://pt-br.reactjs.org)
+* [Styled Components](https://styled-components.com)
+* [AWS Cognito](https://aws.amazon.com/pt/cognito/)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+&nbsp;
+## 📸 Screenshots
+<p align="center">
+  <img width="auto" style="border-radius: 5px" alt="Tela de incial do site" src="https://user-images.githubusercontent.com/55140068/118194057-1e48b780-b41f-11eb-9ca1-94b0b7c5a96c.png">
+</p>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+&nbsp;
+## 🚀 Rodando a aplicação
 
-### `yarn test`
+Você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+* [Git](https://git-scm.com)
+* [NodeJS](https://nodejs.org/en/)
+* [YarnJS](https://yarnpkg.com)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```bash
+# Clone este repositório
+$ git clone "https://github.com/DayaToledo/DesafioBGC-Front"
 
-### `yarn build`
+# Acesse a pasta do projeto no terminal/cmd
+$ cd DesafioBGC-Front
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Instale as dependências
+$ yarn install
+```
+Além de baixar o projeto e instalar as dependências, o projeto também requer algumas variáveis de ambiente, sendo assim:
+1. Adicione uma arquivo nomeado .env na raiz do projeto
+2. Dentro adicione:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+REACT_APP_COGNITO_USER_POOL_ID=SUA_USER_POOL_ID_AQUI
+REACT_APP_COGNITO_APP_CLIENT_ID=SUA_APP_CLIENT_ID_AQUI
+REACT_APP_COGNITO_IDENTITY_POOL_ID=SUA_IDENTITY_POOL_ID_AQUI
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+3. Salve o arquivo
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Agora basta rodar o projeto:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Execute a aplicação
+$ yarn start
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+&nbsp;
+## 📃 Licença
+Esse repositório está licenciado pela **MIT LICENSE**. Para mais informações detalhadas, leia o arquivo [LICENSE](./LICENSE) contido nesse repositório
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+&nbsp;
+## 👩‍💻 Autor
+Feito por Dayana Toledo. [Entre em contato!](https://www.linkedin.com/in/toledodayana/)
