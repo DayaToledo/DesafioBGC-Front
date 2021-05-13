@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Auth } from "aws-amplify";
 
-import { useAppContext } from '../../contexts/LoginContext';
+import { AppContext } from '../../contexts/AppContext';
 import { Container, FormBox } from './styles';
-
 import Navbar from '../../components/Navbar';
 
 export default function Login() {
-    const { userHasAuthenticated } = useAppContext();
+    const { userHasAuthenticated } = useContext(AppContext);
 
     const [values, setValues] = useState({
         email: '',
