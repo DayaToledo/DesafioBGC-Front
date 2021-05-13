@@ -12,6 +12,7 @@
     --spanish-pink: #ffc0bbff;
     --brink-pink: #ff5b7eff;
     --flirt: #9E0B63;
+    --flirt-transparent: #9e0b635e;
 }
 
 @media(max-width: 1000px) {

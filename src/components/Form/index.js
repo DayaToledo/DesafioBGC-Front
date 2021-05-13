@@ -1,10 +1,11 @@
 import React, { useState, useContext  } from 'react';
 import { useHistory } from 'react-router-dom';
-import { API } from 'aws-amplify';
 import { ToastContainer, toast } from 'react-toastify';
+import { API } from 'aws-amplify';
 
 import { Container } from './styles';
 import { AppContext } from '../../contexts/AppContext';
+import Loading from '../../components/Loading';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
@@ -14,6 +15,7 @@ export default function Form() {
 
     const history = useHistory();
 
+    const [loading, setLoading] = useState(false);
     const [values, setValues] = useState({
         name: '',
         email: '',
@@ -31,8 +33,10 @@ export default function Form() {
     async function sendMail(body) {
         try {
             await API.post("cupidoonline", "/send", {body});
+            setLoading(false);
             openConfirmModal();
         } catch (e) {
+            setLoading(false);
             console.error(e);
             notify("Falha ao enviar o e-mail!", "error");
         }
@@ -48,6 +52,8 @@ export default function Form() {
         if (!name || !email || !text) {
             notify("Preencha todos os campos!", "info");
         } else {
+            setLoading(true);
+
             const body = {
                 name: name,
                 email: email,
@@ -58,6 +64,7 @@ export default function Form() {
                 await sendMail(body);
                 history.push("/");
             } catch (e) {
+                setLoading(false);
                 console.error(e);
             }
         }
@@ -81,6 +88,9 @@ export default function Form() {
                     <textarea onChange={handleChange('text')} placeholder="Mensagem..." type="text" />
 
                     <button type="submit">ENVIAR</button>
+
+                    {loading && <Loading />}
+
                 </form>
             </Container>
             <ToastContainer />
