@@ -31,13 +31,13 @@ export const Container = styled.div`
     }
 
     label {
-        width: 60%;
+        width: 80%;
         font-size: 1.4rem;
     }
 
     input {
         height: 2.5rem;
-        width: 60%;
+        width: 80%;
         border: none;
         border-radius: 1rem;
         margin: 0.5rem 0 1.5rem 0;
@@ -47,7 +47,7 @@ export const Container = styled.div`
 
     textarea {
         height: 6rem;
-        width: 60%;
+        width: 80%;
         resize: none;
         border: none;
         border-radius: 1rem;
@@ -68,6 +68,44 @@ export const Container = styled.div`
         :hover {
             background-color: var(--medium-turquoise);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    @media(max-width: 900px) {
+        form {
+            width: 90%;
+            margin-bottom: 2rem;
+        }
+
+        input,
+        label,
+        textarea {
+            width: 80%;
+        }
+    }
+
+    @media(min-width: 900px) and (max-width: 1024px) {
+        form {
+            width: 30rem;
+            margin-bottom: 2rem;
+        }
+
+        input,
+        label,
+        textarea {
+            width: 80%;
+        }
+    }
+
+    @media(min-width: 1500px) {
+        form {
+            width: 90%;
+        }
+
+        input,
+        label,
+        textarea {
+            width: 80%;
         }
     }
 `;

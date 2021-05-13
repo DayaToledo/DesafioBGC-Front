@@ -94,7 +94,7 @@ export default function Login() {
                         onChange={handleChange('confirmPassword')}
                     />
 
-                    <button type="submit">Cadastrar</button>
+                    <button type="submit">CADASTRAR</button>
                 </form>
             </FormBox>
         );
@@ -112,7 +112,7 @@ export default function Login() {
                     />
                     <text>Por favor, verifique seu e-mail para obter o código.</text>
 
-                    <button type="submit">Verificar</button>
+                    <button type="submit">VERIFICAR</button>
                 </form>
             </FormBox>
         );

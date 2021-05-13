@@ -9,6 +9,15 @@ export const Container = styled.div`
     grid-template-areas:
         "head head"
         "main form";
+
+    @media(max-width: 900px) {
+        grid-template-columns: 1fr;
+        grid-template-rows: 4rem 1fr 1fr;
+        grid-template-areas:
+            "head"
+            "main"
+            "form";
+    }
 `;
 
 export const TextBox = styled.div`
@@ -40,5 +49,21 @@ export const TextBox = styled.div`
         width: 70%;
         height: auto;
         transform: scaleX(-1);
+    }
+
+    @media(max-width: 900px) {
+        padding: 2rem;
+
+        h1 {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    @media(min-width: 900px) and (max-width: 1024px) {
+        padding: 5rem 2.5rem;
+    }
+
+    @media(min-width: 1500px) {
+        padding: 6.5rem 3rem;
     }
 `;

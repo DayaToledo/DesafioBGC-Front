@@ -66,7 +66,7 @@ export default function Login() {
                         placeholder="Senha"
                         onChange={handleChange('password')}
                     />
-                    <button type="submit">Entrar</button>
+                    <button type="submit">ENTRAR</button>
 
                     {loading && <Loading />}
                 </form>

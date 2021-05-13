@@ -15,15 +15,27 @@
     --flirt-transparent: #9e0b635e;
 }
 
-@media(max-width: 1000px) {
+@media(min-width: 1500px) {
     html {
-        font-size: 93.75%;
+        font-size: 120%;
     }
 }
 
-@media(max-width: 720px) {
+@media(max-width: 1000px) {
     html {
-        font-size: 87.5%;
+        font-size: 80%;
+    }
+}
+
+@media(max-width: 450px) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@media(max-width: 320px) {
+    html {
+        font-size: 50%;
     }
 }
 

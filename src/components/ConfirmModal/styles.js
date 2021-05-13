@@ -12,16 +12,16 @@ export const Container = styled.div`
     align-items: center;
 
     div {
+        width: 40rem;
+        padding: 3rem 3rem 0 3rem;
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background: var(--spanish-pink);
-        width: 40rem;
-        padding: 3rem 3rem 0 3rem;
         border-radius: 1.5rem;
         box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+        background: var(--spanish-pink);
     }
 
     img {
@@ -37,6 +37,13 @@ export const Container = styled.div`
     p {
         font-size: 1.6rem;
         margin-top: 0.8rem;
+        text-align: center;
+    }
+
+    @media(max-width: 900px) {
+        div {
+            width: 90%;
+        }
     }
 `;
 
