@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext  } from 'react';
 import { useHistory } from 'react-router-dom';
 import { API } from 'aws-amplify';
 import { ToastContainer, toast } from 'react-toastify';
 
 import { Container } from './styles';
+import { AppContext } from '../../contexts/AppContext';
 
 import 'react-toastify/dist/ReactToastify.css';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function Form() {
+    const { openConfirmModal } = useContext(AppContext);
+
     const history = useHistory();
 
     const [values, setValues] = useState({
@@ -28,7 +31,7 @@ export default function Form() {
     async function sendMail(body) {
         try {
             await API.post("cupidoonline", "/send", {body});
-            notify("E-mail enviado com sucesso!", "success");
+            openConfirmModal();
         } catch (e) {
             console.error(e);
             notify("Falha ao enviar o e-mail!", "error");
@@ -42,8 +45,9 @@ export default function Form() {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        if (!name || !email || !text) notify("Preencha todos os campos!", "info");
-        else {
+        if (!name || !email || !text) {
+            notify("Preencha todos os campos!", "info");
+        } else {
             const body = {
                 name: name,
                 email: email,

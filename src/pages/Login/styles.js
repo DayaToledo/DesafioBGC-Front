@@ -9,6 +9,7 @@ export const Container = styled.div`
     grid-template-areas:
         "head"
         "main";
+    background-color: var(--medium-turquoise);
 `;
 
 export const FormBox = styled.div`
@@ -28,6 +29,7 @@ export const FormBox = styled.div`
         align-items: center;
         justify-content: center;
         background-color: var(--brink-pink);
+        box-shadow: 0 0 60px rgba(0, 0, 0, 0.1);
         border-radius: 3rem;
     }
 
@@ -67,6 +69,7 @@ export const FormBox = styled.div`
 
         :hover {
             background-color: var(--medium-turquoise);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
     }
 `;
