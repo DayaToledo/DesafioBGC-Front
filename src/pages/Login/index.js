@@ -1,13 +1,22 @@
 import React, { useState, useContext } from "react";
+import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
 import { Auth } from "aws-amplify";
 
 import { AppContext } from '../../contexts/AppContext';
 import { Container, FormBox } from './styles';
 import Navbar from '../../components/Navbar';
+import Loading from '../../components/Loading';
+
+import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 export default function Login() {
-    const { userHasAuthenticated } = useContext(AppContext);
+    const history = useHistory();
 
+    const { logIn } = useContext(AppContext);
+
+    const [loading, setLoading] = useState(false);
     const [values, setValues] = useState({
         email: '',
         password: '',
@@ -20,14 +29,21 @@ export default function Login() {
     async function handleSubmit(event) {
         event.preventDefault();
 
-        try {
-            await Auth.signIn(email, password);
-            alert("Logged in");
-            userHasAuthenticated(true);
-        } catch (e) {
-            alert(e.message);
-        }
+        if (!email || !password) {
+            toast.info("Preencha todos os campos!");
+        } else {
+            setLoading(true);
 
+            try {
+                await Auth.signIn(email, password);
+                logIn();
+                setLoading(false);
+                history.push('/');
+            } catch (e) {
+                setLoading(false);
+                console.error(e);
+            }
+        }
     }
 
     const { email, password } = values;
@@ -50,7 +66,9 @@ export default function Login() {
                         placeholder="Senha"
                         onChange={handleChange('password')}
                     />
-                    <button type="submit">Login</button>
+                    <button type="submit">Entrar</button>
+
+                    {loading && <Loading />}
                 </form>
             </FormBox>
         </Container>

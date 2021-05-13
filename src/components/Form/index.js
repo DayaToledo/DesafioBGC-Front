@@ -1,6 +1,6 @@
 import React, { useState, useContext  } from 'react';
+import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import { API } from 'aws-amplify';
 
 import { Container } from './styles';
@@ -22,14 +22,6 @@ export default function Form() {
         text: '',
     });
 
-    const notify = (message, type) => {
-        if (type === "error") toast.error(message);
-        else if (type === "info") toast.info(message);
-        else if (type === "warning") toast.warn(message);
-        else if (type === "success") toast.success(message);
-        else toast(message);
-    };
-
     async function sendMail(body) {
         try {
             await API.post("cupidoonline", "/send", {body});
@@ -38,7 +30,7 @@ export default function Form() {
         } catch (e) {
             setLoading(false);
             console.error(e);
-            notify("Falha ao enviar o e-mail!", "error");
+            toast.error("Falha ao enviar o e-mail!");
         }
     }
 
@@ -50,7 +42,7 @@ export default function Form() {
         event.preventDefault();
 
         if (!name || !email || !text) {
-            notify("Preencha todos os campos!", "info");
+            toast.info("Preencha todos os campos!");
         } else {
             setLoading(true);
 
@@ -62,7 +54,7 @@ export default function Form() {
 
             try {
                 await sendMail(body);
-                history.push("/");
+                setLoading(false);
             } catch (e) {
                 setLoading(false);
                 console.error(e);
@@ -73,27 +65,24 @@ export default function Form() {
     const { name, email, text } = values;
 
     return (
-        <>
-            <Container>
-                <form onSubmit={handleSubmit}>
-                    <p>Preencha os campos abaixo, que nós enviaremos um e-mail anônimo para o seu crush!</p>
+        <Container>
+            <form onSubmit={handleSubmit}>
+                <p>Preencha os campos abaixo, que nós enviaremos um e-mail anônimo para o seu crush!</p>
 
-                    <label>Nome do crush</label>
-                    <input onChange={handleChange('name')} placeholder="Nome" type="text" />
+                <label>Nome do crush</label>
+                <input onChange={handleChange('name')} placeholder="Nome" type="text" />
 
-                    <label>E-mail</label>
-                    <input onChange={handleChange('email')} placeholder="Email" type="email" />
+                <label>E-mail</label>
+                <input onChange={handleChange('email')} placeholder="Email" type="email" />
 
-                    <label>Mensagem</label>
-                    <textarea onChange={handleChange('text')} placeholder="Mensagem..." type="text" />
+                <label>Mensagem</label>
+                <textarea onChange={handleChange('text')} placeholder="Mensagem..." type="text" />
 
-                    <button type="submit">ENVIAR</button>
+                <button type="submit">ENVIAR</button>
 
-                    {loading && <Loading />}
+                {loading && <Loading />}
 
-                </form>
-            </Container>
-            <ToastContainer />
-        </>
+            </form>
+        </Container>
     );
 }
